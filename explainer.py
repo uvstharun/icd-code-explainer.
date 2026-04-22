@@ -108,23 +108,39 @@ def explain_icd_code(clinical_description: str) -> ICDResult:
 # -------------------------------------------------------
 
 if __name__ == "__main__":
-    test_cases = [
-        "65-year-old patient with uncontrolled blood sugar, polyuria, and polydipsia. History of type 2 diabetes.",
-        "Patient presents with chest pain, shortness of breath, and elevated troponin. EKG shows ST elevation in leads II, III, aVF.",
-        "55-year-old with poorly controlled hypertension, creatinine 2.1, proteinuria. Currently on lisinopril."
-    ]
+    print("\n" + "="*70)
+    print("  ICD-10 Code Explainer — Clinical Coding AI")
+    print("  Powered by Anthropic Claude + Pydantic")
+    print("="*70)
+    print("Type a clinical description and get ICD-10 + CCSR codes instantly.")
+    print("Type 'quit' to exit.\n")
 
-    for description in test_cases:
-        print(f"\n{'='*70}")
-        print(f"Clinical description:\n{description}")
+    while True:
         print("-" * 70)
+        description = input("Clinical description: ").strip()
 
-        result = explain_icd_code(description)
+        if description.lower() in ["quit", "exit", "q"]:
+            print("Goodbye.")
+            break
 
-        print(f"ICD-10 Code:      {result.icd_code}")
-        print(f"Description:      {result.icd_description}")
-        print(f"CCSR Category:    {result.ccsr_category}")
-        print(f"CCSR Description: {result.ccsr_description}")
-        print(f"Confidence:       {result.confidence}")
-        print(f"Reasoning:        {result.reasoning}")
-        print(f"Also consider:    {', '.join(result.alternative_codes)}")
+        if not description:
+            print("Please enter a clinical description.")
+            continue
+
+        print("Coding...\n")
+
+        try:
+            result = explain_icd_code(description)
+
+            print(f"  ICD-10 Code:      {result.icd_code}")
+            print(f"  Description:      {result.icd_description}")
+            print(f"  CCSR Category:    {result.ccsr_category}")
+            print(f"  CCSR Description: {result.ccsr_description}")
+            print(f"  Confidence:       {result.confidence}")
+            print(f"\n  Reasoning:")
+            print(f"  {result.reasoning}")
+            print(f"\n  Also consider:    {', '.join(result.alternative_codes)}")
+
+        except Exception as e:
+            print(f"  Error: {str(e)}")
+            print("  Try rephrasing the clinical description.")
