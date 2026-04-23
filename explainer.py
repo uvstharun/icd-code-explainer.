@@ -38,7 +38,7 @@ ICD-10-CM code and CCSR category.
 ICD-10-CM coding guidelines you must follow:
 - Code to the highest level of specificity
 - For diabetes: always specify type (Type 1 = E10, Type 2 = E11) and any complications
-- For hypertension: I10 for essential hypertension
+- For hypertension: I10 for essential hypertension 
 - For unspecified conditions use the unspecified code (e.g. .9 suffix)
 - Always consider whether a condition is acute or chronic
 - Adverse drug effects: always sequence the T-code (adverse effect) FIRST, followed by the manifestation. Example: hematuria from warfarin → primary T45.515A, secondary R31.9
