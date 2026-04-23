@@ -41,6 +41,7 @@ ICD-10-CM coding guidelines you must follow:
 - For hypertension: I10 for essential hypertension
 - For unspecified conditions use the unspecified code (e.g. .9 suffix)
 - Always consider whether a condition is acute or chronic
+- Adverse drug effects: always sequence the T-code (adverse effect) FIRST, followed by the manifestation. Example: hematuria from warfarin → primary T45.515A, secondary R31.9
 
 CCSR categories group ICD-10 codes into clinically meaningful categories.
 Common CCSR categories:
